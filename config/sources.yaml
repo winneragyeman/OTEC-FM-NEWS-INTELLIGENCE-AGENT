@@ -1,0 +1,45 @@
+sources:
+  - name: "MyJoyOnline"
+    type: rss
+    url: "https://www.myjoyonline.com/feed/"
+    region: National
+  - name: "3News"
+    type: rss
+    url: "https://3news.com/feed/"
+    region: National
+  - name: "Adom Online"
+    type: rss
+    url: "https://www.adomonline.com/feed/"
+    region: National
+  - name: "ZAA Multimedia"
+    type: rss
+    url: "https://zaaghana.com/feed/"
+    region: Northern
+  - name: "Ghanaian Times"
+    type: rss
+    url: "https://ghanaiantimes.com.gh/category/news/feed/"
+    region: National
+  - name: "Daily Guide Network"
+    type: rss
+    url: "https://dailyguidenetwork.com/feed/"
+    region: National
+  - name: "Ghana Business News"
+    type: rss
+    url: "https://www.ghanabusinessnews.com/feed/"
+    region: Business
+  - name: "GhArticles"
+    type: rss
+    url: "https://gharticles.com/feed/"
+    region: Regional
+  - name: "Africanews"
+    type: rss
+    url: "https://www.africanews.com/feed/rss"
+    region: International
+  - name: "Al Jazeera"
+    type: rss
+    url: "https://www.aljazeera.com/xml/rss/all.xml"
+    region: International
+  - name: "FreeNewsAPI Ghana"
+    type: api
+    url: "https://freenewsapi.ai/v1/search?country=GH&size=50"
+    region: National

@@ -1,0 +1,6 @@
+{
+  "name": "OTEC FM News Intelligence Platform",
+  "description": "News intelligence and editorial platform for OTEC FM 102.9 MHz, Kumasi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

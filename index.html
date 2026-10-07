@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      (function() {
+        try {
+          function makeWritable(obj) {
+            if (!obj) return;
+            try {
+              const desc = Object.getOwnPropertyDescriptor(obj, 'fetch');
+              if (desc && desc.get && !desc.set) {
+                Object.defineProperty(obj, 'fetch', {
+                  get: desc.get,
+                  set: function(val) {
+                    try {
+                      Object.defineProperty(this, 'fetch', {
+                        value: val,
+                        writable: true,
+                        configurable: true,
+                        enumerable: true,
+                      });
+                    } catch (_) {
+                      this._fetch = val;
+                    }
+                  },
+                  configurable: true,
+                  enumerable: desc.enumerable !== false,
+                });
+              }
+            } catch (_) {}
+          }
+
+          let p = window;
+          while (p) {
+            makeWritable(p);
+            p = Object.getPrototypeOf(p);
+          }
+
+          if (typeof window.fetch === 'function') {
+            const orig = window.fetch.bind(window);
+            try {
+              Object.defineProperty(window, 'fetch', {
+                value: orig,
+                writable: true,
+                configurable: true,
+                enumerable: true,
+              });
+            } catch (_) {}
+          }
+        } catch (_) {}
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTEC FM News Intelligence Platform</title>
+    <meta name="description" content="News intelligence and editorial platform for OTEC FM 102.9 MHz, Kumasi." />
+    <meta property="og:title" content="OTEC FM News Intelligence Platform" />
+    <meta property="og:description" content="News intelligence and editorial platform for OTEC FM 102.9 MHz, Kumasi." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
